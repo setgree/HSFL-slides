@@ -1,0 +1,118 @@
+% Food Lab Beamer Theme
+% Based on Stanford theme by Sanha Cheong
+
+\mode<presentation>
+
+% Color definitions
+\definecolor{FoodLabBeige}{HTML}{E8E1D3}
+\definecolor{StanfordCardinal}{HTML}{8C1515}
+\definecolor{DarkGray}{HTML}{2E2D29}
+
+% Settings
+\useinnertheme{rectangles}
+\useoutertheme[subsection=false]{miniframes}
+\usecolortheme{whale}
+
+% Color theme
+\setbeamercolor{structure}{fg=StanfordCardinal}
+\setbeamercolor{palette primary}{fg=DarkGray, bg=FoodLabBeige}
+\setbeamercolor{palette secondary}{fg=white, bg=StanfordCardinal}
+\setbeamercolor{palette tertiary}{fg=white, bg=DarkGray}
+\setbeamercolor{palette quaternary}{fg=white, bg=StanfordCardinal}
+
+\setbeamercolor{title}{fg=StanfordCardinal}
+\setbeamercolor{frametitle}{fg=StanfordCardinal, bg=FoodLabBeige}
+\setbeamercolor{section in head/foot}{fg=white, bg=StanfordCardinal}
+\setbeamercolor{subsection in head/foot}{fg=white, bg=DarkGray}
+
+\setbeamercolor{item}{fg=StanfordCardinal}
+\setbeamercolor{subitem}{fg=DarkGray}
+\setbeamercolor{itemize/enumerate subbody}{fg=DarkGray}
+
+\setbeamercolor{block title}{fg=white, bg=StanfordCardinal}
+\setbeamercolor{block body}{fg=DarkGray, bg=FoodLabBeige!50}
+
+\setbeamercolor{block title example}{fg=white, bg=DarkGray}
+\setbeamercolor{block body example}{fg=DarkGray, bg=FoodLabBeige!50}
+
+\setbeamercolor{block title alerted}{fg=white, bg=StanfordCardinal!80}
+\setbeamercolor{block body alerted}{fg=DarkGray, bg=FoodLabBeige!50}
+
+% Background
+\setbeamercolor{background canvas}{bg=FoodLabBeige}
+
+% Fonts
+\usefonttheme{professionalfonts}
+\usefonttheme{serif}
+\setbeamerfont{title}{size=\Large, series=\bfseries}
+\setbeamerfont{subtitle}{size=\large, series=\normalfont}
+\setbeamerfont{frametitle}{size=\large, series=\bfseries}
+\setbeamerfont{framesubtitle}{size=\small, series=\normalfont}
+
+% Remove navigation symbols
+\setbeamertemplate{navigation symbols}{}
+
+% Frame title
+\setbeamertemplate{frametitle}{
+  \vspace{0.3cm}
+  \insertframetitle
+  \vspace{0.2cm}
+}
+
+% Title page
+\setbeamertemplate{title page}{
+  \vbox{}
+  \vfill
+  \begingroup
+    \centering
+    \begin{beamercolorbox}[sep=8pt,center]{title}
+      \usebeamerfont{title}\inserttitle\par%
+      \ifx\insertsubtitle\@empty%
+      \else%
+        \vskip0.25em%
+        {\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+      \fi%     
+    \end{beamercolorbox}%
+    \vskip1em\par
+    \begin{beamercolorbox}[sep=8pt,center]{author}
+      \usebeamerfont{author}\insertauthor
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{institute}
+      \usebeamerfont{institute}\insertinstitute
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[sep=8pt,center]{date}
+      \usebeamerfont{date}\insertdate
+    \end{beamercolorbox}\vskip0.5em
+  \endgroup
+  \vfill
+}
+
+% Footer with logo
+\setbeamertemplate{footline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=.15\paperwidth,ht=2.5ex,dp=1.125ex,left]{palette quaternary}%
+      \hspace{0.3cm}
+      \ifx\insertframenumber\@empty%
+      \else%
+        \insertframenumber{} / \inserttotalframenumber
+      \fi%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.70\paperwidth,ht=2.5ex,dp=1.125ex,center]{palette primary}%
+      % Space for logo (will be added via \logo command in .Rmd)
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.15\paperwidth,ht=2.5ex,dp=1.125ex,right]{palette quaternary}%
+      \hspace{0.3cm}
+    \end{beamercolorbox}%
+  }%
+  \vskip0pt%
+}
+
+% Logo positioning
+\setbeamertemplate{sidebar right}{
+  \vfill
+  \llap{\insertlogo\hskip0.1cm}
+  \vskip2pt
+}
+
+\mode<all>

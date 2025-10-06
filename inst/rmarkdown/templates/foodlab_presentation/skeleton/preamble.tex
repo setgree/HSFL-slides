@@ -1,0 +1,30 @@
+% Food Lab Presentation Preamble
+
+% Font packages
+\usepackage{sourcesanspro}
+\usepackage{sourceserifpro}
+
+% Additional packages
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+% Hyperlink colors
+\hypersetup{
+    colorlinks=true,
+    linkcolor=.,
+    urlcolor={red!80!black},
+    citecolor={red!80!black}
+}
+
+% Logo (adjust path as needed)
+% Place foodlab-logo.png in the same directory as your .Rmd file
+\logo{\includegraphics[height=0.6cm]{foodlab-logo.png}}
+
+% Custom commands for blocks
+\newenvironment{block}[1]{%
+  \begin{beamerboxesrounded}[upper=block title,lower=block body,shadow=true]{#1}}
+  {\end{beamerboxesrounded}}
+
+% Adjust spacing
+\setlength{\parskip}{0.5em}
