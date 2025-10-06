@@ -17,6 +17,18 @@ classoption: "aspectratio=169"
 ---
 
 ```{r setup, include=FALSE}
+<<<<<<< HEAD
+=======
+# Copy theme file to working directory
+theme_path <- system.file(
+  "rmarkdown/templates/foodlab_presentation/resources/beamerthemeFoodLab.sty",
+  package = "foodlabslides"
+)
+if (file.exists(theme_path)) {
+  file.copy(theme_path, "beamerthemeFoodLab.sty", overwrite = TRUE)
+}
+
+>>>>>>> 824e06f (hope it is fixed)
 knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE,
                       fig.align = 'center', out.width = '80%')
 library(ggplot2)

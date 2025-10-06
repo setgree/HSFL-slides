@@ -11,7 +11,7 @@ Install directly from GitHub:
 install.packages("devtools")
 
 # Install foodlabslides
-devtools::install_github("yourusername/foodlabslides")
+devtools::install_github("setgree/foodlabslides")
 ```
 
 ## Requirements
@@ -23,13 +23,7 @@ devtools::install_github("yourusername/foodlabslides")
 
 ## Setup
 
-### 1. Add the Food Lab logo
-
-Download the Food Lab logo and save it as `foodlab-logo.png` in your R project directory (same folder as your .Rmd file).
-
-You can download the logo from: https://www.foodlabstanford.com/
-
-### 2. Create a new presentation
+### Create a new presentation
 
 In RStudio:
 1. **File → New File → R Markdown...**
@@ -38,7 +32,7 @@ In RStudio:
 4. Choose a name and location
 5. Click **OK**
 
-### 3. Customize your presentation
+### Customize your presentation
 
 Edit the YAML header:
 
@@ -138,6 +132,18 @@ Adjust logo size in `preamble.tex`:
 \logo{\includegraphics[height=0.8cm]{foodlab-logo.png}}
 ```
 
+## Including Graphics
+
+```r
+knitr::include_graphics("path/to/image.png")
+```
+
+## Including Tables
+
+```r
+knitr::kable(your_data, booktabs = TRUE)
+```
+
 ## Tips
 
 1. **Keep slides simple**: 1 main point per slide
@@ -145,9 +151,30 @@ Adjust logo size in `preamble.tex`:
 3. **Consistent style**: The template handles formatting
 4. **Practice**: Knit early and often to catch issues
 
-## Contributing
+## Troubleshooting
 
-Issues and pull requests welcome! Please follow Stanford and Food Lab branding guidelines.
+### LaTeX errors
+
+If you get LaTeX compilation errors:
+- Make sure `foodlab-logo.png` is in the correct directory
+- Check that all required LaTeX packages are installed
+- Try knitting a simple version first to isolate issues
+
+### Logo not appearing
+
+- Verify the logo file is named exactly `foodlab-logo.png`
+- Make sure it's in the same directory as your .Rmd file
+- Check the path in `preamble.tex`
+
+### Font issues
+
+The template uses Source Sans Pro and Source Serif Pro. These should be installed automatically with TinyTeX, but if you have issues:
+
+```r
+tinytex::tlmgr_install("sourcesanspro")
+tinytex::tlmgr_install("sourceserifpro")
+```
+
 
 ## License
 
