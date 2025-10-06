@@ -6,8 +6,6 @@
 pkg_dir <- getwd()
 cat("Creating package structure in:", pkg_dir, "\n\n")
 
-cat("Creating package structure in:", pkg_dir, "\n\n")
-
 # Create directory structure
 dirs <- c(
   "inst/rmarkdown/templates/foodlab_presentation/skeleton",
@@ -69,7 +67,7 @@ cat("✓ Created: LICENSE\n")
 cat('^.*\\.Rproj$
 ^\\.Rproj\\.user$
 ^\\.github$
-^setup_package\\.R$
+^setup_package.*\\.R$
 ', file = ".Rbuildignore")
 cat("✓ Created: .Rbuildignore\n")
 
@@ -236,64 +234,22 @@ cat("✓ Created: beamerthemeFoodLab.sty\n")
 # Create preamble.tex
 cat('% Food Lab Presentation Preamble
 
-% Font packages
-\\usepackage{sourcesanspro}
-\\usepackage{sourceserifpro}
+% Load the theme
+\\usetheme{FoodLab}
 
-% Additional packages
-\\usepackage{graphicx}
-\\usepackage{booktabs}
-\\usepackage{hyperref}
-
-% Hyperlink colors
-\\hypersetup{
-    colorlinks=true,
-    linkcolor=.,
-    urlcolor={red!80!black},
-    citecolor={red!80!black}
-}
-
-% Logo (adjust path as needed)
-% Place foodlab-logo.png in the same directory as your .Rmd file
+% Logo
 \\logo{\\includegraphics[height=0.6cm]{foodlab-logo.png}}
-
-% Custom commands for blocks
-\\newenvironment{block}[1]{%
-  \\begin{beamerboxesrounded}[upper=block title,lower=block body,shadow=true]{#1}}
-  {\\end{beamerboxesrounded}}
-
-% Adjust spacing
-\\setlength{\\parskip}{0.5em}
 ', file = "inst/rmarkdown/templates/foodlab_presentation/skeleton/preamble.tex")
 cat("✓ Created: preamble.tex\n")
-
-# Create a helper file that copies the theme
-cat('# This file is sourced when creating a new presentation
-# It copies the Beamer theme to the working directory
-
-theme_path <- system.file(
-  "rmarkdown/templates/foodlab_presentation/resources/beamerthemeFoodLab.sty",
-  package = "foodlabslides"
-)
-
-if (file.exists(theme_path)) {
-  file.copy(theme_path, "beamerthemeFoodLab.sty", overwrite = TRUE)
-}
-', file = "inst/rmarkdown/templates/foodlab_presentation/skeleton/copy_theme.R")
-cat("✓ Created: copy_theme.R\n")
 
 # Create skeleton.Rmd
 cat('---
 title: "Your Presentation Title"
-subtitle: "Optional Subtitle"
 author: "Your Name"
 institute: "Humane & Sustainable Food Lab, Stanford University"
 date: "`r Sys.Date()`"
 output:
   beamer_presentation:
-    theme: "FoodLab"
-    colortheme: "default"
-    fonttheme: "default"
     slide_level: 2
     keep_tex: false
     includes:
@@ -302,118 +258,34 @@ classoption: "aspectratio=169"
 ---
 
 ```{r setup, include=FALSE}
-# Copy theme file to working directory
-theme_path <- system.file(
-  "rmarkdown/templates/foodlab_presentation/resources/beamerthemeFoodLab.sty",
-  package = "foodlabslides"
-)
-if (file.exists(theme_path)) {
-  file.copy(theme_path, "beamerthemeFoodLab.sty", overwrite = TRUE)
+# Copy required files from package to working directory
+pkg_resources <- system.file("rmarkdown/templates/foodlab_presentation", 
+                             package = "foodlabslides")
+
+# Copy theme file
+theme_file <- file.path(pkg_resources, "resources/beamerthemeFoodLab.sty")
+if (file.exists(theme_file)) {
+  file.copy(theme_file, "beamerthemeFoodLab.sty", overwrite = TRUE)
 }
 
-knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE,
-                      fig.align = \'center\', out.width = \'80%\')
-library(ggplot2)
-# Set ggplot theme to match presentation
-theme_set(theme_minimal(base_size = 14) + 
-          theme(plot.background = element_rect(fill = "#E8E1D3", color = NA),
-                panel.background = element_rect(fill = "#E8E1D3", color = NA)))
+# Copy preamble if not already present
+preamble_file <- file.path(pkg_resources, "skeleton/preamble.tex")
+if (file.exists(preamble_file) && !file.exists("preamble.tex")) {
+  file.copy(preamble_file, "preamble.tex", overwrite = FALSE)
+}
+
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Introduction
+## My Presentation
 
-## Research Overview
+This is my first slide.
 
-This is a sample slide demonstrating the Food Lab presentation template.
+## My Stuff
 
-Key features:
-
-- Clean, minimal design
-- Stanford Cardinal red accents
-- Food Lab branding
-- Easy to customize
-
-## Using R Code
-
-```{r cars-plot, fig.cap="Sample plot with matching theme"}
-ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point(color = "#8C1515", size = 3) +
-  geom_smooth(method = "lm", color = "#2E2D29", se = TRUE, alpha = 0.2) +
-  labs(title = "Fuel Efficiency vs Weight",
-       x = "Weight (1000 lbs)",
-       y = "Miles per Gallon")
-```
-
-# Methods
-
-## Study Design
-
-You can include:
-
-- Bullet points
-- **Bold text**
-- *Italic text*
-- `Code snippets`
-
-## Data Analysis
-
-::: {.columns}
-:::: {.column width="50%"}
-**Quantitative**
-
-- Statistical models
-- Effect sizes
-- Confidence intervals
-::::
-
-:::: {.column width="50%"}
-**Qualitative**
-
-- Thematic analysis
-- Case studies
-- Interviews
-::::
-:::
-
-# Results
-
-## Main Findings
-
-:::block
-### Key Result
-This is an important finding highlighted in a block.
-:::
-
-Additional context and interpretation of results.
-
-## Statistical Analysis
-
-```{r table-example}
-knitr::kable(head(mtcars[, 1:4], 5),
-             caption = "Sample data table",
-             booktabs = TRUE)
-```
-
-# Discussion
-
-## Implications
-
-1. First major implication
-2. Second major implication
-3. Future directions
-
-## Acknowledgments
-
-- Funding sources
-- Collaborators
-- Lab members
-
-\\vspace{1cm}
-
-\\centering
-**Thank you!**
-
-Questions?
+- Point one
+- Point two
+- Point three
 ', file = "inst/rmarkdown/templates/foodlab_presentation/skeleton/skeleton.Rmd")
 cat("✓ Created: skeleton.Rmd\n")
 
@@ -431,7 +303,7 @@ Install directly from GitHub:
 install.packages("devtools")
 
 # Install foodlabslides
-devtools::install_github("yourusername/foodlabslides")
+devtools::install_github("setgree/HSFL-slides")
 ```
 
 ## Requirements
@@ -446,8 +318,6 @@ devtools::install_github("yourusername/foodlabslides")
 ### 1. Add the Food Lab logo
 
 Download the Food Lab logo and save it as `foodlab-logo.png` in your R project directory (same folder as your .Rmd file).
-
-You can download the logo from: https://www.foodlabstanford.com/
 
 ### 2. Create a new presentation
 
@@ -465,7 +335,6 @@ Edit the YAML header:
 ```yaml
 ---
 title: "Your Presentation Title"
-subtitle: "Optional Subtitle"
 author: "Your Name"
 institute: "Humane & Sustainable Food Lab, Stanford University"
 date: "`r Sys.Date()`"
@@ -502,33 +371,6 @@ Use `#` for section titles:
 
 ```markdown
 # Methods
-```
-
-### Columns
-
-Create two-column layouts:
-
-```markdown
-::: {.columns}
-:::: {.column width="50%"}
-Left column content
-::::
-
-:::: {.column width="50%"}
-Right column content
-::::
-:::
-```
-
-### Highlighting
-
-Use blocks for emphasis:
-
-```markdown
-:::block
-### Important Point
-Key information here
-:::
 ```
 
 ## Customization
@@ -593,7 +435,7 @@ cat("2. Test locally:\n")
 cat("   devtools::install()\n\n")
 cat("3. Commit and push to GitHub:\n")
 cat("   git add .\n")
-cat('   git commit -m "Update: Fixed template structure"\n')
+cat('   git commit -m "Initial commit: Food Lab presentation template"\n')
 cat("   git push\n\n")
 cat("4. Lab members can install:\n")
 cat("   devtools::install_github('setgree/HSFL-slides')\n\n")

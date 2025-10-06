@@ -11,7 +11,7 @@ Install directly from GitHub:
 install.packages("devtools")
 
 # Install foodlabslides
-devtools::install_github("yourusername/foodlabslides")
+devtools::install_github("setgree/HSFL-slides")
 ```
 
 ## Requirements
@@ -26,8 +26,6 @@ devtools::install_github("yourusername/foodlabslides")
 ### 1. Add the Food Lab logo
 
 Download the Food Lab logo and save it as `foodlab-logo.png` in your R project directory (same folder as your .Rmd file).
-
-You can download the logo from: https://www.foodlabstanford.com/
 
 ### 2. Create a new presentation
 
@@ -45,7 +43,6 @@ Edit the YAML header:
 ```yaml
 ---
 title: "Your Presentation Title"
-subtitle: "Optional Subtitle"
 author: "Your Name"
 institute: "Humane & Sustainable Food Lab, Stanford University"
 date: "`r Sys.Date()`"
@@ -82,33 +79,6 @@ Use `#` for section titles:
 
 ```markdown
 # Methods
-```
-
-### Columns
-
-Create two-column layouts:
-
-```markdown
-::: {.columns}
-:::: {.column width="50%"}
-Left column content
-::::
-
-:::: {.column width="50%"}
-Right column content
-::::
-:::
-```
-
-### Highlighting
-
-Use blocks for emphasis:
-
-```markdown
-:::block
-### Important Point
-Key information here
-:::
 ```
 
 ## Customization
