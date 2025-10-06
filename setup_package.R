@@ -2,13 +2,9 @@
 # Food Lab Slides Package Setup Script
 # Run this script to automatically create the entire package structure
 
-# Set the parent directory where you want to create the package
-# Change this to your desired location
-
-# Create main package directory
-pkg_dir <- './'
-dir.create(pkg_dir, showWarnings = FALSE)
-setwd(pkg_dir)
+# Use current directory - run this script from where you want the package
+pkg_dir <- getwd()
+cat("Creating package structure in:", pkg_dir, "\n\n")
 
 cat("Creating package structure in:", pkg_dir, "\n\n")
 
@@ -83,8 +79,30 @@ cat('.Rproj.user
 .RData
 .Ruserdata
 *.Rproj
+.DS_Store
 ', file = ".gitignore")
 cat("✓ Created: .gitignore\n")
+
+# Create .Rproj file
+cat('Version: 1.0
+
+RestoreWorkspace: Default
+SaveWorkspace: Default
+AlwaysSaveHistory: Default
+
+EnableCodeIndexing: Yes
+UseSpacesForTab: Yes
+NumSpacesForTab: 2
+Encoding: UTF-8
+
+RnwWeave: Sweave
+LaTeX: pdfLaTeX
+
+BuildType: Package
+PackageUseDevtools: Yes
+PackageInstallArgs: --no-multiarch --with-keep.source
+', file = "foodlabslides.Rproj")
+cat("✓ Created: foodlabslides.Rproj\n")
 
 # Create template.yaml
 cat('name: Food Lab Presentation
@@ -413,7 +431,7 @@ Install directly from GitHub:
 install.packages("devtools")
 
 # Install foodlabslides
-devtools::install_github("setgree/foodlabslides")
+devtools::install_github("yourusername/foodlabslides")
 ```
 
 ## Requirements
@@ -567,16 +585,15 @@ cat("✓ Created: README.md\n")
 cat("\n✅ Package structure created successfully!\n\n")
 cat("📍 Location:", pkg_dir, "\n\n")
 cat("Next steps:\n")
-cat("1. Add the Food Lab logo:\n")
-cat("   - Save as: inst/rmarkdown/templates/foodlab_presentation/resources/foodlab-logo.png\n\n")
-cat("2. Initialize git and push to GitHub:\n")
-cat("   cd", pkg_dir, "\n")
-cat("   git init\n")
+cat("1. Add the Food Lab logo (IMPORTANT - needs to be in TWO places):\n")
+cat("   a) inst/rmarkdown/templates/foodlab_presentation/resources/foodlab-logo.png\n")
+cat("   b) inst/rmarkdown/templates/foodlab_presentation/skeleton/foodlab-logo.png\n")
+cat("   (The skeleton version gets copied to users' projects automatically)\n\n")
+cat("2. Test locally:\n")
+cat("   devtools::install()\n\n")
+cat("3. Commit and push to GitHub:\n")
 cat("   git add .\n")
-cat('   git commit -m "fixed: Food Lab presentation template"\n')
-cat("   git remote add origin https://github.com/setgree/foodlabslides.git\n")
-cat("   git push -u origin main\n\n")
-cat("3. Test locally:\n")
-cat("   devtools::install('", pkg_dir, "')\n\n", sep = "")
-cat("4. After pushing to GitHub, lab members can install:\n")
-cat("   devtools::install_github('setgree/foodlabslides')\n\n")
+cat('   git commit -m "Update: Fixed template structure"\n')
+cat("   git push\n\n")
+cat("4. Lab members can install:\n")
+cat("   devtools::install_github('setgree/HSFL-slides')\n\n")

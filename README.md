@@ -11,7 +11,7 @@ Install directly from GitHub:
 install.packages("devtools")
 
 # Install foodlabslides
-devtools::install_github("setgree/foodlabslides")
+devtools::install_github("yourusername/foodlabslides")
 ```
 
 ## Requirements
