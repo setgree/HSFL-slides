@@ -1,0 +1,122 @@
+---
+title: "Your Presentation Title"
+subtitle: "Optional Subtitle"
+author: "Your Name"
+institute: "Humane & Sustainable Food Lab, Stanford University"
+date: "`r Sys.Date()`"
+output:
+  beamer_presentation:
+    theme: "FoodLab"
+    colortheme: "default"
+    fonttheme: "default"
+    slide_level: 2
+    keep_tex: false
+    includes:
+      in_header: preamble.tex
+classoption: "aspectratio=169"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE,
+                      fig.align = 'center', out.width = '80%')
+library(ggplot2)
+# Set ggplot theme to match presentation
+theme_set(theme_minimal(base_size = 14) + 
+          theme(plot.background = element_rect(fill = "#E8E1D3", color = NA),
+                panel.background = element_rect(fill = "#E8E1D3", color = NA)))
+```
+
+# Introduction
+
+## Research Overview
+
+This is a sample slide demonstrating the Food Lab presentation template.
+
+Key features:
+
+- Clean, minimal design
+- Stanford Cardinal red accents
+- Food Lab branding
+- Easy to customize
+
+## Using R Code
+
+```{r cars-plot, fig.cap="Sample plot with matching theme"}
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point(color = "#8C1515", size = 3) +
+  geom_smooth(method = "lm", color = "#2E2D29", se = TRUE, alpha = 0.2) +
+  labs(title = "Fuel Efficiency vs Weight",
+       x = "Weight (1000 lbs)",
+       y = "Miles per Gallon")
+```
+
+# Methods
+
+## Study Design
+
+You can include:
+
+- Bullet points
+- **Bold text**
+- *Italic text*
+- `Code snippets`
+
+## Data Analysis
+
+::: {.columns}
+:::: {.column width="50%"}
+**Quantitative**
+
+- Statistical models
+- Effect sizes
+- Confidence intervals
+::::
+
+:::: {.column width="50%"}
+**Qualitative**
+
+- Thematic analysis
+- Case studies
+- Interviews
+::::
+:::
+
+# Results
+
+## Main Findings
+
+:::block
+### Key Result
+This is an important finding highlighted in a block.
+:::
+
+Additional context and interpretation of results.
+
+## Statistical Analysis
+
+```{r table-example}
+knitr::kable(head(mtcars[, 1:4], 5),
+             caption = "Sample data table",
+             booktabs = TRUE)
+```
+
+# Discussion
+
+## Implications
+
+1. First major implication
+2. Second major implication
+3. Future directions
+
+## Acknowledgments
+
+- Funding sources
+- Collaborators
+- Lab members
+
+\vspace{1cm}
+
+\centering
+**Thank you!**
+
+Questions?
