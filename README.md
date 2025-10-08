@@ -38,14 +38,6 @@ Change from 16:9 to 4:3 in YAML:
 classoption: "aspectratio=43"
 ```
 
-### Logo Size
-
-Adjust logo size in `preamble.tex`:
-
-```latex
-\logo{\includegraphics[height=0.8cm]{foodlab-logo.png}}
-```
-
 ## License
 
 MIT License - free to use and modify for Food Lab presentations.
