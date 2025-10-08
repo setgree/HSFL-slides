@@ -25,7 +25,7 @@ devtools::install_github("setgree/HSFL-slides")
 
 ### 1. Add the Food Lab logo
 
-Download the Food Lab logo and save it as `foodlab-logo.png` in your R project directory (same folder as your .Rmd file).
+Download the [Food Lab logo](https://github.com/setgree/HSFL-slides/blob/main/inst/rmarkdown/templates/foodlab_presentation/resources/foodlab-logo.png) and save it as `foodlab-logo.png` in your R project directory (same folder as your .Rmd file).
 
 ### 2. Create a new presentation
 
