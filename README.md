@@ -2,6 +2,7 @@
 
 R Markdown template for creating Beamer presentations with Humane & Sustainable Food Lab and Stanford University branding.
 
+There's also a sample presentation for the October 2025 Reducetarian summit.
 ## Installation
 
 Install directly from GitHub:
@@ -20,66 +21,6 @@ devtools::install_github("setgree/HSFL-slides")
 - RStudio (recommended)
 - LaTeX distribution (TinyTeX, MacTeX, or MiKTeX)
   - If you don't have LaTeX: `install.packages("tinytex"); tinytex::install_tinytex()`
-
-## Setup
-
-### 1. Add the Food Lab logo
-
-Download the [Food Lab logo](https://github.com/setgree/HSFL-slides/blob/main/inst/rmarkdown/templates/foodlab_presentation/resources/foodlab-logo.png) and save it as `foodlab-logo.png` in your R project directory (same folder as your .Rmd file).
-
-### 2. Create a new presentation
-
-In RStudio:
-1. **File → New File → R Markdown...**
-2. Click **"From Template"**
-3. Select **"Food Lab Presentation"**
-4. Choose a name and location
-5. Click **OK**
-
-### 3. Customize your presentation
-
-Edit the YAML header:
-
-```yaml
----
-title: "Your Presentation Title"
-author: "Your Name"
-institute: "Humane & Sustainable Food Lab, Stanford University"
-date: "`r Sys.Date()`"
----
-```
-
-### 4. Knit to PDF
-
-Click the **Knit** button or press `Cmd/Ctrl + Shift + K`
-
-## Features
-
-- **Stanford branding**: Uses official Stanford Cardinal red (#8C1515)
-- **Clean design**: Warm beige background with professional typography
-- **Food Lab logo**: Appears on each slide footer
-- **R code integration**: Include plots, tables, and analysis
-- **Easy markdown**: Write in simple markdown syntax
-
-## Slide Structure
-
-### Creating slides
-
-Use `##` for new slides:
-
-```markdown
-## Slide Title
-
-Content goes here
-```
-
-### Section breaks
-
-Use `#` for section titles:
-
-```markdown
-# Methods
-```
 
 ## Customization
 
@@ -108,23 +49,7 @@ Adjust logo size in `preamble.tex`:
 \logo{\includegraphics[height=0.8cm]{foodlab-logo.png}}
 ```
 
-## Tips
-
-1. **Keep slides simple**: 1 main point per slide
-2. **Use visuals**: Plots speak louder than bullet points
-3. **Consistent style**: The template handles formatting
-4. **Practice**: Knit early and often to catch issues
-
-## Contributing
-
-Issues and pull requests welcome! Please follow Stanford and Food Lab branding guidelines.
-
 ## License
 
 MIT License - free to use and modify for Food Lab presentations.
 
-## Contact
-
-Questions? Contact the Food Lab at Stanford University.
-
-Website: https://www.foodlabstanford.com/
