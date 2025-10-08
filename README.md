@@ -1,21 +1,18 @@
 # Food Lab Slides
 
-R Markdown template for creating Beamer presentations with Humane & Sustainable Food Lab and Stanford University branding.
+R Markdown template for creating Beamer presentations with [HSFL colors & logo](https://www.foodlabstanford.com/).
 
 There's also a sample presentation for the October 2025 Reducetarian summit.
+
+One weird quirk is that you have to download the [HSFL logo](https://github.com/setgree/HSFL-slides/blob/main/inst/rmarkdown/templates/foodlab_presentation/resources/foodlab-logo.png), which I just screenshotted from the website, and add it to your presentation folder. If you can fix that, please do :)
+
 ## Installation
 
-Install directly from GitHub:
-
 ```r
-# Install devtools if you haven't already
-install.packages("devtools")
-
-# Install foodlabslides
 devtools::install_github("setgree/HSFL-slides")
 ```
 
-## Requirements
+## Reqs
 
 - R (>= 4.0)
 - RStudio (recommended)
