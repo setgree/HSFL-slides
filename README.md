@@ -27,7 +27,11 @@ devtools::install_github("setgree/HSFL-slides")
 
 ### Colors
 
-The template uses: - **Background**: Beige (#E8E1D3) - **Primary**: Stanford Cardinal (#8C1515) - **Text**: Dark Gray (#2E2D29)
+The template uses:
+
+- **Background**: Beige (#E8E1D3) 
+- **Primary**: Stanford Cardinal (#8C1515) 
+- **Text**: Dark Gray (#2E2D29)
 
 To modify colors, edit `inst/rmarkdown/templates/foodlab_presentation/resources/beamerthemeFoodLab.sty`
 
