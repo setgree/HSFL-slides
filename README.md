@@ -4,7 +4,7 @@ R Markdown template for creating Beamer presentations with [HSFL colors & logo](
 
 They look like this
 
-![](sample-slide.png){width="75%"}
+<img src="sample-slide.png" width="75%" alt="Sample slide">
 
 There's also a sample presentation for the October 2025 Reducetarian summit.
 
