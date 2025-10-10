@@ -2,7 +2,7 @@ Package: foodlabslides
 Type: Package
 Title: R Markdown Template for Food Lab Presentations
 Version: 0.1.0
-Authors@R: person("Food Lab", "Stanford", email = "foodlab@stanford.edu", role = c("aut", "cre"))
+Authors@R: person("Seth Green", email = "setgree@stanford.edu", role = c("aut", "cre"))
 Description: Provides an R Markdown template for creating Beamer presentations
     with Food Lab and Stanford University branding.
 License: MIT + file LICENSE
