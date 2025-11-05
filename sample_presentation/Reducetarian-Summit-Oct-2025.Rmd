@@ -39,6 +39,16 @@ knitr::opts_chunk$set(echo = FALSE)
 2.  saying "other people like plant-based options"
 3.  making them available without comment
 
+## First, hi I'm Seth
+
+* I'm a researcher at the [Humane and Sustainable Food Lab at Stanford](https://www.foodlabstanford.com/) 
+
+* I write about research on a substack called [Regression to the Meat]( https://regressiontothemeat.substack.com/)
+
+* I've had a really twisty career path which I wrote about one time in an EA forum post called "[My circuitous, undirected path to an EA job](https://forum.effectivealtruism.org/editPost?postId=ekbCzxh2SfA64GrxD&key=075f76549755a048983f916c13a411)" 
+
+* I am generally happy to talk career stuff: setgree@stanford.edu
+
 ## Meaningfully reducing consumption of meat and animal products (MAP) is hard
 
 ::::: columns
@@ -85,7 +95,7 @@ knitr::opts_chunk$set(echo = FALSE)
 * Consumers see menus with either 
   - Zero plant-based modern alternatives (PMA) 
   - one (Sofritas)
-  - or two (Sofritas & 'Chickn'itas)
+  - or two (Sofritas & Chickn'itas)
 * Outcome is whether they fill a taco with meat or not
 
 ::::
@@ -107,7 +117,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 * Nothing seeks to improve their appeal to the senses/tastes
 * Instead we get interventions that tell people ["95% of your classmates think the veggie burger is tasty!"](https://doi.org/10.1016/j.appet.2020.104842)
-* or ["60% of your peer group is vegetarian"]((https://doi.org/10.1016/j.foodpol.2024.102621)!
+* or ["60% of your peer group is vegetarian"](https://doi.org/10.1016/j.foodpol.2024.102621)!
   - That's nice! But do I care?
   - Per [Dannenberg et al., 2024](https://doi.org/10.1016/j.foodpol.2024.102621), the answer seems to be no 
   - in fact, men order more meat when their choices are being observed, even if you tell them a majority of their peers are vegetarian
@@ -117,6 +127,6 @@ knitr::opts_chunk$set(echo = FALSE)
 * Telling people meat is bad/wrong will probably [reduce meat consumption by ~1-2 pp](https://regressiontothemeat.substack.com/p/expect-1-2-pp-changes-and-you-wont)
 * Telling people that more and more of their peers are becoming vegetarian: what happens when they [notice that most people still eat meat](https://regressiontothemeat.substack.com/p/eating-vegetarian-is-not-like-voting)? 
 * IMHO the frontier is making [plant-based options delicious](https://regressiontothemeat.substack.com/p/it-helps-if-the-vegan-food-is-delicious) and touting their health benefits
-* Address [beliefs about protein](https://www.tandfonline.com/doi/full/10.1080/15502783.2024.2341903) head-on!
+* Address [beliefs about protein](https://substack.com/home/post/p-178094291) head-on!
 * Thanks :) Questions?
   
