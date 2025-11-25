@@ -29,6 +29,12 @@ if (file.exists(preamble_file) && !file.exists("preamble.tex")) {
   file.copy(preamble_file, "preamble.tex", overwrite = FALSE)
 }
 
+# Copy logo file
+logo_file <- file.path(pkg_resources, "skeleton/foodlab-logo.png")
+if (file.exists(logo_file)) {
+  file.copy(logo_file, "foodlab-logo.png", overwrite = TRUE)
+}
+
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
