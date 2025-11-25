@@ -9,6 +9,7 @@ output:
     keep_tex: false
     includes:
       in_header: preamble.tex
+    highlight: tango
 classoption: "aspectratio=169"
 ---
 
