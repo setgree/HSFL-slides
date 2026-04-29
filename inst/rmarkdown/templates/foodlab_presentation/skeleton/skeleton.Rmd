@@ -7,10 +7,13 @@ output:
   beamer_presentation:
     slide_level: 2
     keep_tex: false
+    pandoc_args: ["--lua-filter=suppress_title.lua"]
     includes:
       in_header: preamble.tex
     highlight: tango
 classoption: "aspectratio=169"
+params:
+  show_title_slide: true
 ---
 
 ```{r setup, include=FALSE}
@@ -24,11 +27,30 @@ if (file.exists(theme_file)) {
   file.copy(theme_file, "beamerthemeFoodLab.sty", overwrite = TRUE)
 }
 
-# Copy preamble if not already present
-preamble_file <- file.path(pkg_resources, "skeleton/preamble.tex")
-if (file.exists(preamble_file) && !file.exists("preamble.tex")) {
-  file.copy(preamble_file, "preamble.tex", overwrite = FALSE)
-}
+# Write preamble.tex
+writeLines(c(
+  "% Food Lab Presentation Preamble",
+  "",
+  "% Load the theme",
+  "\\usetheme{FoodLab}",
+  "",
+  "% Logo",
+  "\\logo{\\includegraphics[height=1cm]{foodlab-logo.png}}"
+), "preamble.tex")
+
+# Write lua filter: removes title from pandoc metadata when show_title_slide=false,
+# which prevents pandoc from generating \frame{\titlepage} entirely
+writeLines(c(
+  "function Meta(m)",
+  "  if m.params and m.params.show_title_slide ~= nil then",
+  "    local val = pandoc.utils.stringify(m.params.show_title_slide)",
+  "    if val == 'false' then",
+  "      m.title = nil",
+  "    end",
+  "  end",
+  "  return m",
+  "end"
+), "suppress_title.lua")
 
 # Copy logo file
 logo_file <- file.path(pkg_resources, "skeleton/foodlab-logo.png")
