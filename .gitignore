@@ -4,4 +4,6 @@
 .Ruserdata
 *.Rproj
 .DS_Store
-*.pdf 
+*.pdf
+luatex.*/
+*.aux

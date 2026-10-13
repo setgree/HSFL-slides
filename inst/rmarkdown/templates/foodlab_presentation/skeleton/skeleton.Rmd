@@ -30,17 +30,16 @@ if (file.exists(theme_file)) {
   file.copy(theme_file, "beamerthemeFoodLab.sty", overwrite = TRUE)
 }
 
-# Write preamble.tex. 0.6cm logo sits on the narrow footer bar
-# (the look of the Oct 2025 Reducetarian deck)
-writeLines(c(
-  "% Food Lab Presentation Preamble",
-  "",
-  "% Load the theme",
-  "\\usetheme{FoodLab}",
-  "",
-  "% Logo",
-  "\\logo{\\includegraphics[height=0.6cm]{foodlab-logo.png}}"
-), "preamble.tex")
+# Copy preamble.tex: theme, 0.6cm logo on the narrow footer bar
+# (the look of the Oct 2025 Reducetarian deck), and emoji support
+preamble_file <- file.path(pkg_resources, "skeleton/preamble.tex")
+if (file.exists(preamble_file)) {
+  file.copy(preamble_file, "preamble.tex", overwrite = TRUE)
+}
+
+# Emoji are drawn via temp PNGs in luatex.* folders; Dropbox sometimes keeps
+# them around after the build, so clear them out each knit
+unlink(Sys.glob("luatex.*"), recursive = TRUE)
 
 # Write lua filter: removes title from pandoc metadata when show_title_slide=false,
 # which prevents pandoc from generating \frame{\titlepage} entirely
