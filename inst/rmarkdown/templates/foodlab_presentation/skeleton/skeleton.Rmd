@@ -2,7 +2,7 @@
 title: "Your Presentation Title"
 author: "Your Name"
 institute: "Humane & Sustainable Food Lab, Stanford University"
-date: "`r Sys.Date()`"
+date: "Event Name, Month Year, City"
 output:
   beamer_presentation:
     slide_level: 2
@@ -12,13 +12,15 @@ output:
       in_header: preamble.tex
     highlight: tango
 classoption: "aspectratio=169"
+urlcolor: blue
+linkcolor: blue
 params:
   show_title_slide: true
 ---
 
 ```{r setup, include=FALSE}
 # Copy required files from package to working directory
-pkg_resources <- system.file("rmarkdown/templates/foodlab_presentation", 
+pkg_resources <- system.file("rmarkdown/templates/foodlab_presentation",
                              package = "foodlabslides")
 
 # Copy theme file
@@ -27,7 +29,8 @@ if (file.exists(theme_file)) {
   file.copy(theme_file, "beamerthemeFoodLab.sty", overwrite = TRUE)
 }
 
-# Write preamble.tex
+# Write preamble.tex. 0.6cm logo sits on the narrow footer bar
+# (the look of the Oct 2025 Reducetarian deck)
 writeLines(c(
   "% Food Lab Presentation Preamble",
   "",
@@ -35,7 +38,7 @@ writeLines(c(
   "\\usetheme{FoodLab}",
   "",
   "% Logo",
-  "\\logo{\\includegraphics[height=1cm]{foodlab-logo.png}}"
+  "\\logo{\\includegraphics[height=0.6cm]{foodlab-logo.png}}"
 ), "preamble.tex")
 
 # Write lua filter: removes title from pandoc metadata when show_title_slide=false,
@@ -59,14 +62,31 @@ if (file.exists(logo_file)) {
 }
 
 knitr::opts_chunk$set(echo = FALSE)
+
+# House style (see README): title, text left, one big picture right, under ~30 words.
+# Add {.t} to slides with pictures so they start right under the title.
 ```
 
-## My Presentation
+## A slide title that states the point {.t}
 
-This is my first slide.
+::::: columns
+::: {.column width="40%"}
+- One short point
+- Another short point
+:::
 
-## My Stuff
+::: {.column width="60%"}
+<!-- \includegraphics[width=\linewidth, height=0.68\textheight, keepaspectratio]{images/your-image.png} -->
+[your image here]
+:::
+:::::
+
+## A text-only slide
 
 - Point one
 - Point two
 - Point three
+
+::: notes
+Speaker notes go here. They don't appear in the PDF.
+:::
