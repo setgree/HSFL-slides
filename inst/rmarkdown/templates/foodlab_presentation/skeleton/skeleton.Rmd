@@ -11,6 +11,7 @@ output:
     includes:
       in_header: preamble.tex
     highlight: tango
+    latex_engine: lualatex
 classoption: "aspectratio=169"
 urlcolor: blue
 linkcolor: blue

@@ -5,3 +5,17 @@
 
 % Logo
 \logo{\includegraphics[height=0.6cm]{foodlab-logo.png}}
+
+% Emoji: type them straight into the Rmd. Requires latex_engine: lualatex in the
+% YAML; missing glyphs fall back to Apple Color Emoji (macOS) or Noto Color Emoji.
+% Skipped under pdflatex, which can't do emoji at all.
+\ifdefined\directlua
+  \directlua{
+    local apple = io.open("/System/Library/Fonts/Apple Color Emoji.ttc")
+    local emoji_font = apple and "AppleColorEmoji" or "NotoColorEmoji"
+    if apple then apple:close() end
+    luaotfload.add_fallback("emojifallback", {emoji_font .. ":mode=harf;"})
+  }
+  \setmainfont{Latin Modern Roman}[RawFeature={fallback=emojifallback}]
+  \setsansfont{Latin Modern Sans}[RawFeature={fallback=emojifallback}]
+\fi
