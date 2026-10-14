@@ -63,8 +63,7 @@ if (file.exists(logo_file)) {
 
 knitr::opts_chunk$set(echo = FALSE)
 
-# House style (see README): title, text left, one big picture right, under ~30 words.
-# Add {.t} to slides with pictures so they start right under the title.
+# {.t} after a slide title pins its content to the top
 ```
 
 ## A slide title that states the point {.t}
