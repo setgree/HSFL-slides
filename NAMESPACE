@@ -1,1 +1,1 @@
-# No exported functions; the package only ships an R Markdown template.
+export(foodlab_presentation)

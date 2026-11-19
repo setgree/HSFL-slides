@@ -3,6 +3,9 @@
 
 \mode<presentation>
 
+% Text in the middle of the footer; foodlab_presentation(footer_url = ...) sets it
+\providecommand{\foodlabfooter}{}
+
 % Color definitions
 \definecolor{FoodLabBeige}{HTML}{E8E1D3}
 \definecolor{StanfordCardinal}{HTML}{8C1515}
@@ -99,7 +102,7 @@
       \fi%
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.70\paperwidth,ht=2.5ex,dp=1.125ex,center]{palette primary}%
-      % Space for logo (will be added via \logo command in .Rmd)
+      \foodlabfooter
     \end{beamercolorbox}%
     \begin{beamercolorbox}[wd=.15\paperwidth,ht=2.5ex,dp=1.125ex,right]{palette quaternary}%
       \hspace{0.3cm}

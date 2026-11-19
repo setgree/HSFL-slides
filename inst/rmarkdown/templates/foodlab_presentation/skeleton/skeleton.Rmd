@@ -4,66 +4,13 @@ author: "Your Name"
 institute: "Humane & Sustainable Food Lab, Stanford University"
 date: "Event Name, Month Year, City"
 output:
-  beamer_presentation:
-    slide_level: 2
-    keep_tex: false
-    pandoc_args: ["--lua-filter=suppress_title.lua"]
-    includes:
-      in_header: preamble.tex
-    highlight: tango
-    latex_engine: lualatex
-classoption: "aspectratio=169"
-urlcolor: blue
-linkcolor: blue
-params:
-  show_title_slide: true
+  foodlabslides::foodlab_presentation:
+    footer_url: null  # optional footer link, e.g. "https://github.com/you/your-slides/"
 ---
 
 ```{r setup, include=FALSE}
-# Copy required files from package to working directory
-pkg_resources <- system.file("rmarkdown/templates/foodlab_presentation",
-                             package = "foodlabslides")
-
-# Copy theme file
-theme_file <- file.path(pkg_resources, "resources/beamerthemeFoodLab.sty")
-if (file.exists(theme_file)) {
-  file.copy(theme_file, "beamerthemeFoodLab.sty", overwrite = TRUE)
-}
-
-# Copy preamble.tex: theme, 0.6cm logo on the narrow footer bar
-# (the look of the Oct 2025 Reducetarian deck), and emoji support
-preamble_file <- file.path(pkg_resources, "skeleton/preamble.tex")
-if (file.exists(preamble_file)) {
-  file.copy(preamble_file, "preamble.tex", overwrite = TRUE)
-}
-
-# Emoji are drawn via temp PNGs in luatex.* folders; Dropbox sometimes keeps
-# them around after the build, so clear them out each knit
-unlink(Sys.glob("luatex.*"), recursive = TRUE)
-
-# Write lua filter: removes title from pandoc metadata when show_title_slide=false,
-# which prevents pandoc from generating \frame{\titlepage} entirely
-writeLines(c(
-  "function Meta(m)",
-  "  if m.params and m.params.show_title_slide ~= nil then",
-  "    local val = pandoc.utils.stringify(m.params.show_title_slide)",
-  "    if val == 'false' then",
-  "      m.title = nil",
-  "    end",
-  "  end",
-  "  return m",
-  "end"
-), "suppress_title.lua")
-
-# Copy logo file
-logo_file <- file.path(pkg_resources, "skeleton/foodlab-logo.png")
-if (file.exists(logo_file)) {
-  file.copy(logo_file, "foodlab-logo.png", overwrite = TRUE)
-}
-
+# The theme, logo and preamble load from the foodlabslides package; nothing to copy.
 knitr::opts_chunk$set(echo = FALSE)
-
-# {.t} after a slide title pins its content to the top
 ```
 
 ## A slide title that states the point {.t}
